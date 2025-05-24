@@ -1,6 +1,4 @@
 @charset "utf-8";
-
-/* 引入外部字体 Poppins */
 @import url('https://fonts.loli.net/css?family=Poppins:100,200,300,400,500,600,700,800,900');
 
 /* 全局重置和默认字体设置 */
@@ -14,7 +12,7 @@
 /* body 基础样式 */
 body {
   min-height: 100vh; /* 最小高度为视口高度 */
-  background: url(https://i0.hdslb.com/bfs/openplatform/d7f761da295fe10f7dc232befd1cffec6ebe6f64.jpg) center no-repeat;
+  background: url(https://i0.hdslb.com/bfs/openplatform/d7f761da295fe10f7dc232befd1cffec6ebe6f64.jpg) center no-repeat fixed;
   background-size: cover; /* 背景图片覆盖整个区域 */
   display: flex; /* 使用 Flexbox 布局 */
   flex-direction: column; /* 子元素垂直排列 */
@@ -159,9 +157,6 @@ body {
 .card .content .details .actionBtn button:hover {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* 悬停时添加轻微阴影 */
 }
-
-
-/* 第二个操作按钮的特定样式 (例如“QQ联系我”) */
 .card .content .details .actionBtn button:nth-child(2) {
   border: 1px solid #999; /* 灰色边框 */
   color: #999; /* 灰色文字 */
@@ -173,14 +168,9 @@ body {
 }
 
 
-/* “一言” (Hitokoto) 页面样式 */
+/* 一言 */
 .hitokoto-fullpage {
-  /* position: relative; -- 通常不需要，除非有特定堆叠上下文需求 */
   color: white; /* 文字颜色 */
-  /* z-index: 1; -- 通常不需要，除非有特定堆叠上下文需求 */
-  /* margin-top: 35vh; -- 较大的顶部外边距，可能导致内容偏下 */
-  /* margin-bottom: 35vh; -- 较大的底部外边距，同上 */
-  /* 调整外边距，使其更适应与卡片一起显示 */
   margin-top: 20px;
   margin-bottom: 20px; /* 在卡片上方留出足够空间 */
   margin-left: auto;
@@ -207,7 +197,7 @@ body {
   opacity: 0.8;
 }
 
-/* 页脚样式 */
+/* 页脚 */
 #footer {
   text-align: center; /* 页脚文本居中 */
   width: 100%; /* 占据全部宽度 */
@@ -217,10 +207,66 @@ body {
   margin-top: auto; /* 如果body是flex容器，这会将页脚推到底部 */
 }
 
-/* 移动端适配 */
-@media (max-width: 480px) {  
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url(https://i0.hdslb.com/bfs/openplatform/d7f761da295fe10f7dc232befd1cffec6ebe6f64.jpg) center no-repeat fixed;
+    background-size: cover;
+  }
+
+  .card {
+    background: #2d2d2d;
+    box-shadow: 0 35px 80px rgba(255, 255, 255, 0.1);
+  }
+
+  .card .content .details h2 {
+    color: #e0e0e0;
+  }
+
+  .card .content .details h2 span {
+    opacity: 0.8;
+  }
+
+  .card .content .details .data h3 {
+    color: #e0e0e0;
+  }
+
+  .card .content .details .data h3 span {
+    color: rgba(224, 224, 224, 0.7);
+  }
+
+  .actionBtn button {
+    background: #4a90e2 !important;
+  }
+
+  .actionBtn button:nth-child(2) {
+    border-color: #666 !important;
+    color: #e0e0e0 !important;
+    background: #404040 !important;
+  }
+
   .hitokoto-fullpage {
-    width: 90%;     /* 更窄的宽度 */
-    bottom: 50px;   /* 更靠近底部 */
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+  }
+
+  #footer {
+    color: rgba(224, 224, 224, 0.8);
+  }
+
+  /* 头像容器适配 */
+  .imgBx {
+    background: #404040;
+    box-shadow: 0 15px 50px rgba(255, 255, 255, 0.1);
+  }
+
+  /* 按钮悬停状态 */
+  .actionBtn button:hover {
+    background: #357abd !important;
+  }
+  
+  .actionBtn button:nth-child(2):hover {
+    background: #505050 !important;
   }
 }

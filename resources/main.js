@@ -1,7 +1,8 @@
-// Copyright console log from original main.js
 console.log(
   '\n' +
   ` %c ${new Date().getFullYear()} © Victor All Rights Reserved. ` +
+  '\n' +
+  ` Version 1.0.0` +
   '\n',
   'color: #fadfa3; background: #030307; padding:5px 0;'
 );
@@ -19,14 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const blogButton = document.getElementById('blogButton');
   if (blogButton) {
     blogButton.addEventListener('click', () => {
-      alert("博客开发中...");
+      window.location.href = "";
     });
   }
 
   const qqButton = document.getElementById('qqButton');
   if (qqButton) {
     qqButton.addEventListener('click', () => {
-      const qqNumber = "3101369496"; // QQ number
+      const qqNumber = "3101369496";
       window.location.href = `tencent://message/?uin=${qqNumber}&Site=&Menu=yes`;
     });
   }
