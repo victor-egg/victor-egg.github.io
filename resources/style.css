@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* 引入外部字体 Poppins */
-@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.loli.net/css?family=Poppins:100,200,300,400,500,600,700,800,900');
 
 /* 全局重置和默认字体设置 */
 * {
@@ -14,7 +14,7 @@
 /* body 基础样式 */
 body {
   min-height: 100vh; /* 最小高度为视口高度 */
-  background: url(background.jpg) center no-repeat; /* 背景图片居中不重复 */
+  background: url(https://i0.hdslb.com/bfs/openplatform/d7f761da295fe10f7dc232befd1cffec6ebe6f64.jpg) center no-repeat;
   background-size: cover; /* 背景图片覆盖整个区域 */
   display: flex; /* 使用 Flexbox 布局 */
   flex-direction: column; /* 子元素垂直排列 */
