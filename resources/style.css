@@ -1,0 +1,226 @@
+@charset "utf-8";
+
+/* 引入外部字体 Poppins */
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+
+/* 全局重置和默认字体设置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* CSS盒模型设置为 border-box */
+  font-family: 'Poppins', sans-serif; /* 默认字体 */
+}
+
+/* body 基础样式 */
+body {
+  min-height: 100vh; /* 最小高度为视口高度 */
+  background: url(background.jpg) center no-repeat; /* 背景图片居中不重复 */
+  background-size: cover; /* 背景图片覆盖整个区域 */
+  display: flex; /* 使用 Flexbox 布局 */
+  flex-direction: column; /* 子元素垂直排列 */
+  justify-content: center; /* 主轴居中 (垂直方向) */
+  align-items: center; /* 交叉轴居中 (水平方向) */
+  backdrop-filter: blur(5px); /* 背景模糊效果 */
+  padding: 20px; /* 给body一些内边距，防止内容紧贴边缘 */
+}
+
+/* 卡片容器样式 */
+.card {
+  position: relative; /* 相对定位，作为内部绝对定位元素的基准 */
+  width: 350px;
+  height: 200px; /* 卡片初始高度 */
+  background: #fff; /* 白色背景 */
+  border-radius: 20px; /* 圆角 */
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15); /* 阴影效果 */
+  transition: height 0.5s; /* 高度变化时的过渡动画 */
+  margin-top: 70px; /* 为头像图片区域留出空间，因为头像向上偏移 */
+}
+
+/* 卡片悬停时的高度变化 */
+.card:hover {
+  height: 450px; /* 卡片展开后的高度 */
+}
+
+/* 头像图片容器样式 */
+.imgBx {
+  position: absolute; /* 绝对定位 */
+  left: 50%; /* 水平居中 */
+  top: -50px; /* 向上偏移，部分悬浮在卡片外 */
+  transform: translateX(-50%); /* 精确水平居中 */
+  width: 150px; /* 初始宽度 */
+  height: 150px; /* 初始高度 */
+  background: #fff; /* 白色背景，覆盖卡片 */
+  border-radius: 20px; /* 圆角 */
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35); /* 阴影效果 */
+  overflow: hidden; /* 超出部分隐藏 */
+  transition: width 0.6s, height 0.6s; /* 宽高变化的过渡动画 */
+  z-index: 10; /* 确保头像在内容之上 */
+}
+
+/* 卡片悬停时头像容器的样式变化 */
+.card:hover .imgBx {
+  width: 250px; /* 展开后的宽度 */
+  height: 250px; /* 展开后的高度 */
+}
+
+/* 头像图片样式 */
+.imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 图片保持宽高比，并填充整个容器 */
+}
+
+/* 卡片内容区域样式 */
+.card .content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: flex-end; /* 内容在底部对齐 */
+  overflow: hidden; /* 隐藏超出内容 */
+}
+
+/* 卡片详细信息区域样式 */
+.card .content .details {
+  padding: 40px;
+  padding-top: 80px; /* 增加顶部内边距，避免与初始头像重叠 */
+  text-align: center;
+  width: 100%;
+  transition: transform 0.5s; /* Y轴位移的过渡动画 */
+  transform: translateY(150px); /* 初始状态向下偏移，隐藏部分内容 */
+}
+
+/* 卡片悬停时详细信息区域的样式变化 */
+.card:hover .content .details {
+  transform: translateY(0px); /* 向上移动，显示全部内容 */
+}
+
+/* 详细信息中的标题 (姓名) */
+.card .content .details h2 {
+  font-size: 1.25em;
+  font-weight: 600;
+  color: #555;
+  line-height: 1.2em;
+}
+
+/* 详细信息中的标题下的描述文字 */
+.card .content .details h2 span {
+  font-size: 0.75em;
+  font-weight: 500;
+  opacity: 0.5; /* 半透明效果 */
+}
+
+/* 数据区域 (QQ, WeChat, BiliBili) */
+.card .content .details .data {
+  display: flex;
+  justify-content: space-between; /* 子元素平均分布空间 */
+  margin: 20px 0;
+}
+
+/* 数据项标题 */
+.card .content .details .data h3 {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.2em;
+  font-weight: 600;
+}
+
+/* 数据项内容 */
+.card .content .details .data h3 span {
+  font-size: 0.85em;
+  font-weight: 400;
+  opacity: 0.5;
+}
+
+/* 操作按钮容器 */
+.card .content .details .actionBtn {
+  display: flex;
+  justify-content: space-around; /* 按钮平均分布，适当间距 */
+  /* justify-content: space-between; -- 原样式，如果希望按钮靠两边则使用这个 */
+}
+
+/* 操作按钮通用样式 */
+.card .content .details .actionBtn button {
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  font-weight: 500;
+  background: #ff5f95; /* 主题色按钮 */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* 添加过渡效果 */
+}
+.card .content .details .actionBtn button:hover {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* 悬停时添加轻微阴影 */
+}
+
+
+/* 第二个操作按钮的特定样式 (例如“QQ联系我”) */
+.card .content .details .actionBtn button:nth-child(2) {
+  border: 1px solid #999; /* 灰色边框 */
+  color: #999; /* 灰色文字 */
+  background: #fff; /* 白色背景 */
+}
+.card .content .details .actionBtn button:nth-child(2):hover {
+  background: #f0f0f0; /* 悬停时改变背景色 */
+  color: #555;
+}
+
+
+/* “一言” (Hitokoto) 页面样式 */
+.hitokoto-fullpage {
+  /* position: relative; -- 通常不需要，除非有特定堆叠上下文需求 */
+  color: white; /* 文字颜色 */
+  /* z-index: 1; -- 通常不需要，除非有特定堆叠上下文需求 */
+  /* margin-top: 35vh; -- 较大的顶部外边距，可能导致内容偏下 */
+  /* margin-bottom: 35vh; -- 较大的底部外边距，同上 */
+  /* 调整外边距，使其更适应与卡片一起显示 */
+  margin-top: 20px;
+  margin-bottom: 20px; /* 在卡片上方留出足够空间 */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; /* 文本居中 */
+  max-width: 80%; /* 限制最大宽度，防止文本过长 */
+  padding: 10px;
+  background-color: rgba(0,0,0,0.3); /* 轻微暗色背景，提高文本可读性 */
+  border-radius: 8px;
+}
+
+.hitokoto-fullpage p {
+  margin: 5px 0; /* 段落间距 */
+}
+
+#hitokoto_text {
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+#hitokoto_author {
+  font-size: 0.9em;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* 页脚样式 */
+#footer {
+  text-align: center; /* 页脚文本居中 */
+  width: 100%; /* 占据全部宽度 */
+  color: white;
+  font-size: 12px;
+  line-height: 24px;
+  margin-top: auto; /* 如果body是flex容器，这会将页脚推到底部 */
+}
+
+/* 移动端适配 */
+@media (max-width: 480px) {  
+  .hitokoto-fullpage {
+    width: 90%;     /* 更窄的宽度 */
+    bottom: 50px;   /* 更靠近底部 */
+  }
+}
