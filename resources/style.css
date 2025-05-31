@@ -167,6 +167,21 @@ body {
   color: #555;
 }
 
+/* 联系方式链接样式 */
+.contact-link {
+  font-size: 0.85em;
+  font-weight: 400;
+  opacity: 0.5;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.contact-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
 
 /* 一言 */
 .hitokoto-fullpage {
@@ -268,5 +283,9 @@ body {
   
   .actionBtn button:nth-child(2):hover {
     background: #505050 !important;
+  }
+
+  .contact-link {
+    color: rgba(224, 224, 224, 0.7);
   }
 }
