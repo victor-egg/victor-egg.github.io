@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const homeButton = document.getElementById('homeButton');
   if (homeButton) {
     homeButton.addEventListener('click', () => {
-      window.location.href = "";
+      window.location.href = "https://chron.top";
     });
   }
 

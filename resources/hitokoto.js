@@ -1,7 +1,7 @@
 const hitokotoTextElement = document.getElementById("hitokoto_text");
 const hitokotoAuthorElement = document.getElementById("hitokoto_author");
 
-let api_path = "https://v1.hitokoto.cn/?encode=json&charset=utf-8";
+let api_path = "http://127.0.0.1:36901/hitokoto";
 
 async function fetchAndDisplayHitokoto() {
   if (!hitokotoTextElement || !hitokotoAuthorElement) {
@@ -15,15 +15,15 @@ async function fetchAndDisplayHitokoto() {
       throw new Error(`网络请求失败,状态码: ${response.status}`);
     }
     const data = await response.json();
-    // 更新页面内容
+
     let authorInfo = "无名氏";
-    if (data.from_who && data.from) {
-      authorInfo = `—— ${data.from_who}「${data.from}」`;
-    } else if (data.from) {
-      authorInfo = `——「${data.from}」`;
+    if (data.data.from_who && data.data.from) {
+      authorInfo = `—— ${data.data.from_who}「${data.data.from}」`;
+    } else if (data.data.from) {
+      authorInfo = `——「${data.data.from}」`;
     }
     hitokotoAuthorElement.textContent = authorInfo;
-    hitokotoTextElement.textContent = data.hitokoto || "";
+    hitokotoTextElement.textContent = data.data.hitokoto || "";
   } catch (error) {
     console.error("一言:", error);
     hitokotoTextElement.textContent = "O.o 出错了~";

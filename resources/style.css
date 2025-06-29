@@ -1,25 +1,23 @@
 @charset "utf-8";
 @import url('https://fonts.loli.net/css?family=Poppins:100,200,300,400,500,600,700,800,900');
 
-/* 全局重置和默认字体设置 */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* CSS盒模型设置为 border-box */
-  font-family: 'Poppins', sans-serif; /* 默认字体 */
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* body 基础样式 */
 body {
-  min-height: 100vh; /* 最小高度为视口高度 */
+  min-height: 100vh;
   background: url(https://i0.hdslb.com/bfs/openplatform/d7f761da295fe10f7dc232befd1cffec6ebe6f64.jpg) center no-repeat fixed;
-  background-size: cover; /* 背景图片覆盖整个区域 */
-  display: flex; /* 使用 Flexbox 布局 */
-  flex-direction: column; /* 子元素垂直排列 */
-  justify-content: center; /* 主轴居中 (垂直方向) */
-  align-items: center; /* 交叉轴居中 (水平方向) */
-  backdrop-filter: blur(5px); /* 背景模糊效果 */
-  padding: 20px; /* 给body一些内边距，防止内容紧贴边缘 */
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  padding: 20px;
 }
 
 /* 卡片容器样式 */
@@ -61,43 +59,38 @@ body {
   height: 250px; /* 展开后的高度 */
 }
 
-/* 头像图片样式 */
 .imgBx img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 图片保持宽高比，并填充整个容器 */
+  object-fit: cover;
 }
 
-/* 卡片内容区域样式 */
 .card .content {
   position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center; /* 水平居中 */
-  align-items: flex-end; /* 内容在底部对齐 */
-  overflow: hidden; /* 隐藏超出内容 */
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden; 
 }
 
-/* 卡片详细信息区域样式 */
 .card .content .details {
   padding: 40px;
-  padding-top: 80px; /* 增加顶部内边距，避免与初始头像重叠 */
+  padding-top: 80px;
   text-align: center;
   width: 100%;
-  transition: transform 0.5s; /* Y轴位移的过渡动画 */
-  transform: translateY(150px); /* 初始状态向下偏移，隐藏部分内容 */
+  transition: transform 0.5s;
+  transform: translateY(150px);
 }
 
-/* 卡片悬停时详细信息区域的样式变化 */
 .card:hover .content .details {
-  transform: translateY(0px); /* 向上移动，显示全部内容 */
+  transform: translateY(0px);
 }
 
-/* 详细信息中的标题 (姓名) */
 .card .content .details h2 {
   font-size: 1.25em;
   font-weight: 600;
@@ -105,21 +98,18 @@ body {
   line-height: 1.2em;
 }
 
-/* 详细信息中的标题下的描述文字 */
 .card .content .details h2 span {
   font-size: 0.75em;
   font-weight: 500;
-  opacity: 0.5; /* 半透明效果 */
+  opacity: 0.5;
 }
 
-/* 数据区域 (QQ, WeChat, BiliBili) */
 .card .content .details .data {
   display: flex;
-  justify-content: space-between; /* 子元素平均分布空间 */
+  justify-content: space-between;
   margin: 20px 0;
 }
 
-/* 数据项标题 */
 .card .content .details .data h3 {
   font-size: 1em;
   color: #555;
@@ -127,21 +117,17 @@ body {
   font-weight: 600;
 }
 
-/* 数据项内容 */
 .card .content .details .data h3 span {
   font-size: 0.85em;
   font-weight: 400;
   opacity: 0.5;
 }
 
-/* 操作按钮容器 */
 .card .content .details .actionBtn {
   display: flex;
-  justify-content: space-around; /* 按钮平均分布，适当间距 */
-  /* justify-content: space-between; -- 原样式，如果希望按钮靠两边则使用这个 */
+  justify-content: space-around;
 }
 
-/* 操作按钮通用样式 */
 .card .content .details .actionBtn button {
   padding: 10px 30px;
   border-radius: 5px;
@@ -149,25 +135,24 @@ body {
   outline: none;
   font-size: 1em;
   font-weight: 500;
-  background: #ff5f95; /* 主题色按钮 */
+  background: #ff5f95;
   color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* 添加过渡效果 */
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 .card .content .details .actionBtn button:hover {
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* 悬停时添加轻微阴影 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 .card .content .details .actionBtn button:nth-child(2) {
-  border: 1px solid #999; /* 灰色边框 */
-  color: #999; /* 灰色文字 */
-  background: #fff; /* 白色背景 */
+  border: 1px solid #999;
+  color: #999;
+  background: #fff;
 }
 .card .content .details .actionBtn button:nth-child(2):hover {
-  background: #f0f0f0; /* 悬停时改变背景色 */
+  background: #f0f0f0;
   color: #555;
 }
 
-/* 联系方式链接样式 */
 .contact-link {
   font-size: 0.85em;
   font-weight: 400;
@@ -187,13 +172,13 @@ body {
 .hitokoto-fullpage {
   color: white; /* 文字颜色 */
   margin-top: 20px;
-  margin-bottom: 20px; /* 在卡片上方留出足够空间 */
+  margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
-  text-align: center; /* 文本居中 */
-  max-width: 80%; /* 限制最大宽度，防止文本过长 */
+  text-align: center;
+  max-width: 80%;
   padding: 10px;
-  background-color: rgba(0,0,0,0.3); /* 轻微暗色背景，提高文本可读性 */
+  background-color: rgba(0,0,0,0.3);
   border-radius: 8px;
 }
 
@@ -212,14 +197,22 @@ body {
   opacity: 0.8;
 }
 
-/* 页脚 */
 #footer {
-  text-align: center; /* 页脚文本居中 */
-  width: 100%; /* 占据全部宽度 */
+  text-align: center;
+  width: 100%;
   color: white;
   font-size: 12px;
   line-height: 24px;
-  margin-top: auto; /* 如果body是flex容器，这会将页脚推到底部 */
+  margin-top: auto;
+}
+
+.beian-link {
+    color: #00BFFF;
+    text-decoration: none;
+}
+
+.beian-link:hover {
+    text-decoration: underline;
 }
 
 /* 深色模式适配 */
@@ -287,5 +280,9 @@ body {
 
   .contact-link {
     color: rgba(224, 224, 224, 0.7);
+  }
+
+  .beian-link {
+    color: #87CEFA;
   }
 }
