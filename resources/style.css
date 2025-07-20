@@ -10,7 +10,7 @@
 
 body {
   min-height: 100vh;
-  background: url(https://i0.hdslb.com/bfs/openplatform/d7f761da295fe10f7dc232befd1cffec6ebe6f64.jpg) center no-repeat fixed;
+  background: url(./background.jpg) center no-repeat fixed;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -219,7 +219,7 @@ body {
 @media (prefers-color-scheme: dark) {
   body {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                url(https://i0.hdslb.com/bfs/openplatform/d7f761da295fe10f7dc232befd1cffec6ebe6f64.jpg) center no-repeat fixed;
+                url(./background.jpg) center no-repeat fixed;
     background-size: cover;
   }
 
